@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class SwitchingWindows {
 	
@@ -30,14 +30,11 @@ public class SwitchingWindows {
 		
 		driver.findElement(By.linkText("CONTINUE TO NETBANKING")).click();
 		
-		//driver.switchTo().window(windows.get(1));
-		
-		WebDriverWait wait = new WebDriverWait(driver,10);
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.name("fldLoginUserId"))));
+		driver.switchTo().frame("login_page");
 		
 		driver.findElement(By.name("fldLoginUserId")).sendKeys("35426789");
 		
-		//driver.findElement(By.linkText("Know More")).click();
+		
 		
 		
 	}
