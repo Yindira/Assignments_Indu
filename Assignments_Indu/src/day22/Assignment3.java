@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Assignment3 {
-	
+
 	WebDriver driver;
 	boolean searchBtn;
 
@@ -23,29 +23,30 @@ public class Assignment3 {
 		driver.get("https://www.linkedin.com/");
 	}
 
-	@Test(priority=1)
+	@Test(priority = 1)
 	public void method1() {
 		searchBtn = driver.findElement(By.name("search")).isEnabled();
 		Assert.assertFalse(searchBtn);
 	}
-	
-	@Test(priority=2)
+
+	@Test(priority = 2)
 	public void method2() {
 		driver.findElement(By.name("first")).sendKeys("Indu");
-		 searchBtn = driver.findElement(By.name("search")).isEnabled();
-		 Assert.assertTrue(searchBtn);
+		searchBtn = driver.findElement(By.name("search")).isEnabled();
+		Assert.assertTrue(searchBtn);
 	}
-	
-	@Test(priority=0)
+
+	@Test(priority = 0)
 	public void method3() {
 		boolean linkText = driver.findElement(By.linkText("Forgot password?")).isDisplayed();
 		Assert.assertTrue(linkText);
 	}
-	
+
 	@AfterTest
 	public void closeBrowser() {
 		driver.close();
 	}
 
-
 }
+
+//Very Good! All are correct

@@ -26,7 +26,7 @@ public class Assignment2 {
 
 	}
 
-	@Test(priority=0)
+	@Test(priority = 0)
 
 	public void titleTest() {
 		expectedResult = "Facebook - Log In or Sign Up";
@@ -34,13 +34,13 @@ public class Assignment2 {
 		Assert.assertEquals(actualResult, expectedResult);
 	}
 
-	@Test(priority=1,enabled=false)
+	@Test(priority = 1, enabled = false)
 	public void logIn() {
 		boolean loginBtn = driver.findElement(By.id("loginbutton")).isDisplayed();
 		Assert.assertTrue(loginBtn);
 	}
 
-	@Test(priority=2)
+	@Test(priority = 2)
 	public void genderRadioBtn() {
 		boolean radioBtn = driver.findElement(By.id("u_0_a")).isSelected();
 		Assert.assertFalse(radioBtn);
@@ -52,3 +52,5 @@ public class Assignment2 {
 		driver.close();
 	}
 }
+
+//Correct
