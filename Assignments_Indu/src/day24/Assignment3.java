@@ -1,6 +1,5 @@
 package day24;
 
-
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -18,47 +17,52 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Assignment3 {
-	
+
 	WebDriver driver;
-	
+
 	public static void verifyLinks(String url) throws ClientProtocolException, IOException {
-		
+
 		HttpClient client = HttpClientBuilder.create().build();
 		HttpGet request = new HttpGet(url);
 		HttpResponse response = client.execute(request);
-		
-		if(response.getStatusLine().getStatusCode() != 200) {
-			
-			System.out.println("Non Working link - "+ url);
+
+		if (response.getStatusLine().getStatusCode() != 200) {
+
+			System.out.println("Non Working link - " + url);
 		}
 	}
-	
-@BeforeTest
-	
+
+	@BeforeTest
+
 	public void openBrowser() {
-		
+
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://www.facebook.com/");
-		
+
 	}
-	
+
 	@Test
-	
+
 	public void allLinksCheck() throws ClientProtocolException, IOException {
-		
+
 		List<WebElement> links = driver.findElements(By.tagName("a"));
-		
-		for(WebElement x:links) {
-			
+
+		for (WebElement x : links) {
+
 			String url = x.getAttribute("href");
-			
+
 			verifyLinks(url);
-			
+
 		}
-		
-		
+
 	}
 
 }
+
+/*Here you had to verify the links at the bottom of the page, in your code it is going to verify the links of
+ * entire page. So first locate the elements of the bottom of the page, save them in a variable and then use
+ * that variable instead of driver.findElements. Other than that everything else is good. 
+*
+*/
