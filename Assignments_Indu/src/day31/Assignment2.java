@@ -37,4 +37,4 @@ public class Assignment2 {
 	}
 
 }
-
+//This also gives us the correct output, you can also use how we did it in the class :)

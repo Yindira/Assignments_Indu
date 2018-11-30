@@ -37,4 +37,4 @@ public class Assignment3 {
 
 }
 }
-
+//This is not working correctly, after asking for 3 times, it prints the output thrice.
